@@ -40,3 +40,32 @@
         target: "#sideNav",
     });
 })(jQuery); // End of use strict
+
+
+window.addEventListener('DOMContentLoaded', async () => {
+    const userPreferredLanguage =  navigator.language || navigator.userLanguage;
+
+    const langData = await fetchLanguageData(userPreferredLanguage);
+    updateContent(langData);
+});
+
+function updateContent(langData) {
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+        const key = element.getAttribute('data-i18n');
+        element.textContent = langData[key];
+    });
+}
+
+async function fetchLanguageData(lang) {
+    const currentLanguage = mapLanguage(lang);
+    const response = await fetch(`languages/${currentLanguage}.json`);
+    return response.json();
+}
+
+function mapLanguage(lang){
+    if(lang.includes('fr'))
+        return 'fr';
+    if(lang.includes('en'))
+        return 'en';
+    return 'es'
+}
