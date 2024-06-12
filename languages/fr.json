@@ -24,7 +24,7 @@
     "ratech": "Ratech-laveur - pigments naturels et gomme arabique sur toile, 65 x 50 cm - 200 €",
     "verreur": "Raton-verreur - pigments naturels et gomme arabique sur toile, 81 x 54 cm - 250 €",
     "poo": "Playa de Poo - pigments naturels et gomme arabique sur toile, 100 x 75 cm - 300 € ",
-    "reinette": "Vallée du reinette - pigments naturels et huile de lin sur toile, 92 x 73 cm, vendu",
+    "reinette": "Vallée du reinette - pigments naturels et huile de lin sur toile, 92 x 73 cm, VENDU",
     "sertucine": "La Sertucine - pigments naturels et huile de lin sur toile, 100 x 75 cm, VENDU",
     "grandetortille": "Grande tortille aux champignons - pigments naturels et huile de lin sur toile, 81 x 60 cm, 200 €",
     "t3": "Troisième tortille - pigments naturels et huile de lin sur toile, 50 x 50 cm, VENDU",
@@ -34,9 +34,9 @@
     "agustin": "San Agustin, Colombie - pigments naturels et huile de lin sur toile, 50 x 50 cm, 150 €",
     "nuberu": "El Nuberu - pigments naturels et huile de lin sur toile, 50 x 50 cm, 150 €",
     "crocus": "Crocus pocus - pigments naturels et huile de lin sur toile, 73 x 54 cm, 200 €",
-    "tulipa": "Tulipa viridiflora 'Spring Green' - pigments naturels et huile de lin sur toile, 81 x 65 cm, vendu",
+    "tulipa": "Tulipa viridiflora 'Spring Green' - pigments naturels et huile de lin sur toile, 81 x 65 cm, VENDU",
     "marguerite": "Leucanthemum vulgare - pigments naturels et huile de lin sur toile, 50 x 60 cm, 175 €",
-    "hellebore": "Helleborus Foetidus - pigments naturels et huile de lin sur toile, 50 x 50 cm, vendu",
+    "hellebore": "Helleborus Foetidus - pigments naturels et huile de lin sur toile, 50 x 50 cm, VENDU",
     "digitale": "Digitalis purpurea - pigments naturels et huile de lin sur toile, 50 x 65 cm, 150 €",
     "train": "Campsis radicans - pigments naturels et huile de lin sur toile, 40 x 60 cm, 100 €",
     "HS": "Calystegia sepium - pigments naturels et huile de lin sur toile, 50 x 60 cm, 150 €",
@@ -48,5 +48,6 @@
     "goma": "Bar-restaurant La Goma, Grenade, Espagne",
     "quarmita": "Café-bar-librairie La Qarmita, Grenade, Espagne",
     "verano": "Un été dans les Asturies",
-    "casacangas": "Maison de la culture à Cangas de Onis, Asturies, Espagne"
+    "casacangas": "Maison de la culture à Cangas de Onis, Asturies, Espagne",
+    "expotitle": "Expositions"
 }
