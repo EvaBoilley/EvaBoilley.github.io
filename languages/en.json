@@ -3,7 +3,7 @@
     "theartist": "About the artist",
     "galerie": "Gallery",
     "expositions": "exhibitions",
-    "fascination": " I’ve always been fascinated by natural landscapes and the rhythm of forest, mountains or lakes. Painting helps me express a deep admiration for the beauty of our planet and an equally deep regret to see how humankind is sometimes unable to see how unfairly they treat it.",
+    "fascination": "I’ve always been fascinated by natural landscapes and the rhythm of forest, mountains or lakes. Painting helps me express a deep admiration for the beauty of our planet and an equally deep regret to see how humankind is sometimes unable to see how unfairly they treat it.",
     "sold": "sold",
     "artiste": "About the artist",
     "menuartiste": "About the artist",
@@ -20,7 +20,7 @@
     "nutrias": "Asturias III - Cangas de Onís - natural mineral pigments and gum arabic on canvas, 65 x 46 cm - 200 €",
     "manzano": "Asturias IV - Meet me at the apple tree - natural mineral pigments and gum arabic on canvas, 65 x 54 cm - 200 €",
     "horreo": "Asturias II - Hórreo - natural mineral pigments and gum arabic on canvas, 81 x 54 cm - SOLD ",
-    "sella": "Asturias V - El descenso internacional del Sella - pigments naturels et gomme arabique sur toile, 73 x 50 cm - SOLD",
+    "sella": "Asturias V - El descenso internacional del Sella - natural mineral pigments and gum arabic on canvas, 73 x 50 cm - SOLD",
     "picos": "Asturias VI - Picos de Europa - natural mineral pigments and gum arabic on canvas, 81 x 54 cm - 250 €",
     "plastique": "Plastic, my love - natural mineral pigments and gum arabic on canvas, 65 x 50 cm - SOLD",
     "ratech": "Ratech-laveur - natural mineral pigments and gum arabic on canvas, 65 x 50 cm - 200 €",
@@ -33,7 +33,7 @@
     "t2": "Second day hiking - natural mineral pigments and linseed oil on canvas, 50 x 50 cm, 150 €",
     "t1": "Third day hiking - natural mineral pigments and linseed oil on canvas, 50 x 50 cm, 150 €",
     "deuxk": "Two Komainus - natural mineral pigments and linseed oil on canvas, 50 x 50 cm, 150 €",
-    "agustin": "San Agustin, Colombie - natural mineral pigments and linseed oil on canvas, 50 x 50 cm, 150 €",
+    "agustin": "San Agustin, Columbia - natural mineral pigments and linseed oil on canvas, 50 x 50 cm, 150 €",
     "nuberu": "El Nuberu - natural mineral pigments and linseed oil on canvas, 50 x 50 cm, 150 €",
     "crocus": "Crocus pocus - natural mineral pigments and linseed oil on canvas, 73 x 54 cm, 200 €",
     "tulipa": "Tulipa viridiflora 'Spring Green' - natural mineral pigments and linseed oil on canvas, 81 x 65 cm, SOLD",
@@ -51,5 +51,8 @@
     "quarmita": "Café-bar-bookshop La Qarmita, Granada, Spain",
     "verano": "A summer in Asturias",
     "casacangas": "Cultural Centre in Cangas de Onis, Spain",
-    "expotitle": "Exhibitions"
+    "expotitle": "Exhibitions",
+    "printon": "Spring raccoon - natural mineral pigments and gum arabic on canvas, 65 x 54 cm - Commission",
+    "vacareal": "A royal cow - natural mineral pigments and gum arabic on canvas, 30 x 30 cm - 500 €",
+    "vacacualquiera": "A common cow - natural mineral pigments and gum arabic on canvas, 30 x 30 cm - 50 €"
 }
