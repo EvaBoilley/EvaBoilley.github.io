@@ -1,7 +1,7 @@
 {
     "imageCreator": "Visual artist",
     "theartist": "About the artist",
-    "galerie": "Gallery",
+    "galerie": "GALLERY",
     "expositions": "exhibitions",
     "fascination": "I’ve always been fascinated by natural landscapes and the rhythm of forest, mountains or lakes. Painting helps me express a deep admiration for the beauty of our planet and an equally deep regret to see how humankind is sometimes unable to see how unfairly they treat it.",
     "sold": "sold",
@@ -48,7 +48,7 @@
     "arriondas": "Cultural centre in Arriondas, Asturias, Spain",
     "children": "Collective exhibition in the gallery Pablo de Lillo, Oviedo, Spain",
     "goma": "Bar-restaurant La Goma, Granada, Spain",
-    "quarmita": "Café-bar-bookshop La Qarmita, Granada, Spain",
+    "qarmita": "Café-bar-bookshop La Qarmita, Granada, Spain",
     "verano": "A summer in Asturias",
     "casacangas": "Cultural Centre in Cangas de Onis, Spain",
     "expotitle": "Exhibitions",
