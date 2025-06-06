@@ -47,6 +47,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     const langData = await fetchLanguageData(userPreferredLanguage);
     updateContent(langData);
+    console.log("User language: " + userPreferredLanguage)
 });
 
 function updateContent(langData) {
