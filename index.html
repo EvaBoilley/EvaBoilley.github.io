@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html class="dark" lang="fr">
+<html class="dark">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T2MZG22C9R"></script>
     <script>
@@ -62,13 +62,13 @@
             <h1 class="serif-text text-xl md:text-2xl font-bold tracking-tight text-white">Eva Boilley</h1>
         </a>
         <nav class="hidden md:flex items-center gap-10">
-            <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="#about">L'artiste</a>
-            <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="galerie.html">Galerie</a>
-            <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="expositions.html">Expositions</a>
+            <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="#about" data-i18n="menuartiste">L'artiste</a>
+            <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+            <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a>
         </nav>
         <div class="flex items-center gap-6">
             <a href="mailto:windcrafter@hotmail.com" class="hidden sm:flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 hover:border-primary hover:bg-primary transition-all duration-300">
-                <span class="text-xs uppercase tracking-widest font-bold text-white">Contact</span>
+                <span class="text-xs uppercase tracking-widest font-bold text-white" data-i18n="contact">Contact</span>
             </a>
             <button class="md:hidden text-white" id="mobile-menu-btn">
                 <span class="material-symbols-outlined">menu</span>
@@ -81,9 +81,9 @@
         <button id="close-menu" class="absolute top-6 right-6 text-white">
             <span class="material-symbols-outlined text-3xl">close</span>
         </button>
-        <a class="text-lg uppercase tracking-[0.2em] font-medium text-white hover:text-primary transition-colors" href="#about">L'artiste</a>
-        <a class="text-lg uppercase tracking-[0.2em] font-medium text-white hover:text-primary transition-colors" href="galerie.html">Galerie</a>
-        <a class="text-lg uppercase tracking-[0.2em] font-medium text-white hover:text-primary transition-colors" href="expositions.html">Expositions</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-white hover:text-primary transition-colors" href="#about" data-i18n="menuartiste">L'artiste</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-white hover:text-primary transition-colors" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-white hover:text-primary transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a>
     </div>
 
     <!-- Main Content -->
@@ -93,23 +93,23 @@
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/2025/eleboro.webp');"></div>
             <div class="absolute inset-0 hero-gradient"></div>
             <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
-                <span class="text-primary text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block">Créatrice d'images</span>
+                <span class="text-primary text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block" data-i18n="imageCreator">Créatrice d'images</span>
                 <h2 class="serif-text text-5xl md:text-8xl text-white font-normal leading-tight mb-8">
                     Eva <br/> <span class="italic">Boilley</span>
                 </h2>
-                <p class="max-w-xl mx-auto text-white/60 text-base md:text-lg font-light leading-relaxed mb-10">
+                <p class="max-w-xl mx-auto text-white/60 text-base md:text-lg font-light leading-relaxed mb-10" data-i18n="heroDescription">
                     Fascinée par les grands espaces et la puissance de la nature, je peins avec des pigments naturels pour transmettre cette admiration.
                 </p>
                 <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
                     <a href="galerie.html" class="group flex items-center gap-3 bg-primary hover:bg-blue-700 text-white px-8 py-4 rounded-lg transition-all transform hover:-translate-y-1">
-                        <span class="font-bold tracking-wider uppercase text-sm">Voir la Galerie</span>
+                        <span class="font-bold tracking-wider uppercase text-sm" data-i18n="seeGallery">Voir la Galerie</span>
                         <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
                 </div>
             </div>
             <!-- Scroll Indicator -->
             <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-                <span class="text-[10px] uppercase tracking-[0.3em] text-white">Défiler</span>
+                <span class="text-[10px] uppercase tracking-[0.3em] text-white" data-i18n="scroll">Défiler</span>
                 <div class="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
             </div>
             <!-- Social Links Vertical -->
@@ -130,28 +130,28 @@
             <div class="max-w-5xl mx-auto">
                 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                     <div class="order-2 md:order-1">
-                        <span class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block">À propos</span>
-                        <h3 class="serif-text text-4xl md:text-5xl text-white font-normal leading-tight mb-8">
+                        <span class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block" data-i18n="aboutLabel">À propos</span>
+                        <h3 class="serif-text text-4xl md:text-5xl text-white font-normal leading-tight mb-8" data-i18n="theartist">
                             L'artiste
                         </h3>
                         <div class="space-y-6 text-white/70 leading-relaxed">
-                            <p>
+                            <p data-i18n="fascination">
                                 Fascinée depuis toujours par les grands espaces et la puissance de la nature, je cherche par la peinture à transmettre cette admiration pour ce spectacle grandiose, lent ou fulgurant, intimidant ou merveilleux, que nous offre chaque jour notre planète.
                             </p>
-                            <p>
+                            <p data-i18n="oils">
                                 Je peins avec les pigments naturels de la Société des Ocres de France et soit de l'huile de lin, soit de la gomme arabique; sans utiliser de diluants chimiques. Mon matériel est sourcé localement ou de seconde main.
                             </p>
-                            <p>
+                            <p data-i18n="si">
                                 Si vous souhaitez acheter un tableau, contactez-moi par e-mail. J'accepte également les commandes.
                             </p>
                         </div>
                         <div class="mt-10 flex flex-col sm:flex-row gap-4">
                             <a href="galerie.html" class="inline-flex items-center gap-2 bg-primary hover:bg-blue-700 text-white px-6 py-3 rounded-lg transition-all font-bold text-sm uppercase tracking-wider">
-                                <span>Voir mes œuvres</span>
+                                <span data-i18n="seeMyWorks">Voir mes œuvres</span>
                                 <span class="material-symbols-outlined text-lg">arrow_forward</span>
                             </a>
                             <a href="mailto:windcrafter@hotmail.com" class="inline-flex items-center gap-2 border border-white/20 hover:border-primary text-white px-6 py-3 rounded-lg transition-all font-bold text-sm uppercase tracking-wider">
-                                <span>Me contacter</span>
+                                <span data-i18n="contactMe">Me contacter</span>
                             </a>
                         </div>
                     </div>
@@ -173,11 +173,11 @@
             <div class="max-w-7xl mx-auto">
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
                     <div>
-                        <span class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block">Collection</span>
-                        <h3 class="serif-text text-4xl md:text-5xl text-white font-normal">Œuvres récentes</h3>
+                        <span class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block" data-i18n="collection">Collection</span>
+                        <h3 class="serif-text text-4xl md:text-5xl text-white font-normal" data-i18n="recentWorks">Œuvres récentes</h3>
                     </div>
                     <a href="galerie.html" class="group flex items-center gap-2 text-white/70 hover:text-primary transition-colors">
-                        <span class="text-sm font-medium uppercase tracking-wider">Voir toute la galerie</span>
+                        <span class="text-sm font-medium uppercase tracking-wider" data-i18n="seeAllGallery">Voir toute la galerie</span>
                         <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
                 </div>
@@ -218,28 +218,28 @@
             <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-start md:items-center gap-10">
                 <div class="max-w-xs">
                     <h5 class="serif-text text-2xl mb-4">Eva Boilley</h5>
-                    <p class="text-sm text-white/50 leading-relaxed">Créatrice d'images fascinée par les grands espaces et la puissance de la nature.</p>
+                    <p class="text-sm text-white/50 leading-relaxed" data-i18n="footerDescription">Créatrice d'images fascinée par les grands espaces et la puissance de la nature.</p>
                 </div>
                 <div class="flex flex-col sm:flex-row gap-12 md:gap-24">
                     <div>
-                        <h6 class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold mb-4">Atelier</h6>
+                        <h6 class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold mb-4" data-i18n="atelier">Atelier</h6>
                         <address class="not-italic text-sm text-white/70 space-y-1">
                             <p>Arbois, France</p>
                             <p>windcrafter@hotmail.com</p>
                         </address>
                     </div>
                     <div>
-                        <h6 class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold mb-4">Réseaux</h6>
+                        <h6 class="text-[10px] uppercase tracking-[0.3em] text-primary font-bold mb-4" data-i18n="networks">Réseaux</h6>
                         <nav class="flex flex-col gap-2 text-sm text-white/70">
                             <a class="hover:text-white transition-colors" href="https://www.instagram.com/eva_myvalova" target="_blank">Instagram @eva_myvalova</a>
                         </nav>
                     </div>
                 </div>
                 <div class="w-full md:w-auto">
-                    <a href="mailto:windcrafter@hotmail.com" class="w-full md:w-auto inline-block text-center bg-white text-black px-8 py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300">
+                    <a href="mailto:windcrafter@hotmail.com" class="w-full md:w-auto inline-block text-center bg-white text-black px-8 py-3 rounded-lg font-bold text-xs uppercase tracking-widest hover:bg-primary hover:text-white transition-all duration-300" data-i18n="contactMe">
                         Me contacter
                     </a>
-                    <p class="text-[10px] text-white/30 mt-4 text-center md:text-right">© 2025 Eva Boilley. Tous droits réservés.</p>
+                    <p class="text-[10px] text-white/30 mt-4 text-center md:text-right" data-i18n="copyright">© 2025 Eva Boilley. Tous droits réservés.</p>
                 </div>
             </div>
         </footer>
@@ -269,5 +269,6 @@
             });
         });
     </script>
+    <script src="scriptsCV.js"></script>
 </body>
 </html>
