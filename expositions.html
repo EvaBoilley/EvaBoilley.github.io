@@ -33,6 +33,7 @@
             background: linear-gradient(to bottom, transparent, #292d38 10%, #292d38 90%, transparent);
         }
     </style>
+    <script src="scriptsCV.js" defer></script>
 </head>
 <body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 min-h-screen">
     <div class="relative flex min-h-screen w-full flex-col overflow-x-hidden">
@@ -45,12 +46,18 @@
                 <h2 class="text-xl font-extrabold leading-tight tracking-tight uppercase">Eva Boilley</h2>
             </a>
             <nav class="hidden md:flex flex-1 justify-center gap-12">
-                <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="index.html#l'artiste">L'artiste</a>
-                <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="galerie.html">Galerie</a>
-                <a class="text-sm font-bold text-primary uppercase tracking-widest" href="expositions.html">Expositions</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="index.html#l'artiste" data-i18n="menuartiste">L'artiste</a>
+                <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+                <a class="text-sm font-bold text-primary uppercase tracking-widest" href="expositions.html" data-i18n="menuexpo">Expositions</a>
             </nav>
             <div class="flex items-center gap-4">
-                <a href="mailto:windcrafter@hotmail.com" class="hidden sm:flex bg-primary text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary/90 transition-all">
+                <!-- Language Selector -->
+                <select id="lang-selector" class="bg-transparent border border-slate-300 dark:border-slate-700 rounded-lg px-2 py-1 text-sm font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="fr">FR</option>
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                </select>
+                <a href="mailto:windcrafter@hotmail.com" class="hidden sm:flex bg-primary text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary/90 transition-all" data-i18n="contact">
                     Contact
                 </a>
                 <button class="md:hidden text-slate-900 dark:text-white" id="mobile-menu-btn">
@@ -64,17 +71,17 @@
             <button id="close-menu" class="absolute top-6 right-6 text-slate-900 dark:text-white">
                 <span class="material-symbols-outlined text-3xl">close</span>
             </button>
-            <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="index.html#l'artiste">L'artiste</a>
-            <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="galerie.html">Galerie</a>
-            <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="expositions.html">Expositions</a>
+            <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="index.html#l'artiste" data-i18n="menuartiste">L'artiste</a>
+            <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+            <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a>
         </div>
 
         <main class="flex-1 flex flex-col items-center py-12 px-6">
             <div class="max-w-[800px] w-full">
                 <!-- Page Title & Description -->
                 <div class="text-center mb-16">
-                    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6">Expositions</h1>
-                    <p class="text-slate-500 dark:text-slate-400 text-lg max-w-xl mx-auto font-light leading-relaxed">
+                    <h1 class="text-5xl md:text-7xl font-extrabold tracking-tighter mb-6" data-i18n="expotitle">Expositions</h1>
+                    <p class="text-slate-500 dark:text-slate-400 text-lg max-w-xl mx-auto font-light leading-relaxed" data-i18n="expoDescription">
                         Un historique curé de mes expositions individuelles et collectives dans des galeries et institutions.
                     </p>
                 </div>
@@ -376,7 +383,7 @@
         <!-- Minimalist Footer -->
         <footer class="border-t border-slate-200 dark:border-slate-800 py-12 px-6 md:px-20 bg-background-light dark:bg-background-dark">
             <div class="flex flex-col md:flex-row justify-between items-center gap-8">
-                <div class="text-sm text-slate-500 dark:text-slate-400 font-light uppercase tracking-widest">
+                <div class="text-sm text-slate-500 dark:text-slate-400 font-light uppercase tracking-widest" data-i18n="copyright">
                     © 2025 Eva Boilley. Tous droits réservés.
                 </div>
                 <div class="flex gap-6">
@@ -394,30 +401,5 @@
             </div>
         </footer>
     </div>
-
-    <!-- Mobile Menu Script -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuBtn = document.getElementById('close-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-        });
-        
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-        });
-        
-        // Close menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-            });
-        });
-    </script>
 </body>
 </html>

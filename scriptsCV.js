@@ -6,11 +6,51 @@
 
 // i18n functionality
 window.addEventListener('DOMContentLoaded', async () => {
-    const userPreferredLanguage =  navigator.language || navigator.userLanguage;
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    const userPreferredLanguage = savedLanguage || navigator.language || navigator.userLanguage;
 
     const langData = await fetchLanguageData(userPreferredLanguage);
     updateContent(langData);
-    console.log("User language: " + userPreferredLanguage)
+    console.log("User language: " + userPreferredLanguage);
+
+    // Update language selector if present
+    const langSelector = document.getElementById('lang-selector');
+    if (langSelector) {
+        langSelector.value = mapLanguage(userPreferredLanguage);
+        
+        // Language selector change handler
+        langSelector.addEventListener('change', async (e) => {
+            const lang = e.target.value;
+            localStorage.setItem('selectedLanguage', lang);
+            const newLangData = await fetchLanguageData(lang);
+            updateContent(newLangData);
+        });
+    }
+
+    // Mobile menu functionality
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    const closeMenuBtn = document.getElementById('close-menu');
+    
+    if (mobileMenuBtn && mobileMenu && closeMenuBtn) {
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+        
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+    }
 });
 
 function updateContent(langData) {

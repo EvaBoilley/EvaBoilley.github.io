@@ -30,6 +30,7 @@
             },
         }
     </script>
+    <script src="scriptsCV.js" defer></script>
     <style>
         body {
             font-family: 'Manrope', sans-serif;
@@ -65,12 +66,18 @@
                 <h1 class="text-xl font-extrabold tracking-tight uppercase">Eva Boilley</h1>
             </a>
             <nav class="hidden md:flex items-center gap-10">
-                <a class="text-sm font-medium tracking-wide text-slate-500 hover:text-primary transition-colors" href="index.html#l'artiste">L'artiste</a>
-                <a class="text-sm font-semibold tracking-wide hover:text-primary transition-colors" href="galerie.html">Galerie</a>
-                <a class="text-sm font-medium tracking-wide text-slate-500 hover:text-primary transition-colors" href="expositions.html">Expositions</a>
+                <a class="text-sm font-medium tracking-wide text-slate-500 hover:text-primary transition-colors" href="index.html#l'artiste" data-i18n="menuartiste">L'artiste</a>
+                <a class="text-sm font-semibold tracking-wide hover:text-primary transition-colors" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+                <a class="text-sm font-medium tracking-wide text-slate-500 hover:text-primary transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a>
             </nav>
             <div class="flex items-center gap-4">
-                <a href="mailto:windcrafter@hotmail.com" class="hidden sm:flex bg-primary text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary/90 transition-all">
+                <!-- Language Selector -->
+                <select id="lang-selector" class="bg-transparent border border-slate-300 dark:border-slate-700 rounded-lg px-2 py-1 text-sm font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary">
+                    <option value="fr">FR</option>
+                    <option value="en">EN</option>
+                    <option value="es">ES</option>
+                </select>
+                <a href="mailto:windcrafter@hotmail.com" class="hidden sm:flex bg-primary text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary/90 transition-all" data-i18n="contact">
                     Contact
                 </a>
                 <button class="md:hidden text-slate-900 dark:text-white" id="mobile-menu-btn">
@@ -85,17 +92,17 @@
         <button id="close-menu" class="absolute top-6 right-6 text-slate-900 dark:text-white">
             <span class="material-symbols-outlined text-3xl">close</span>
         </button>
-        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="index.html#l'artiste">L'artiste</a>
-        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="galerie.html">Galerie</a>
-        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="expositions.html">Expositions</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="index.html#l'artiste" data-i18n="menuartiste">L'artiste</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a>
     </div>
 
     <main class="max-w-7xl mx-auto px-6 py-12">
         <!-- Page Header -->
         <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
             <div class="space-y-2">
-                <h2 class="text-4xl md:text-5xl font-black tracking-tighter">Galerie</h2>
-                <p class="text-slate-500 dark:text-slate-400 max-w-lg">Une exploration chronologique de la nature et des paysages à travers les pigments naturels.</p>
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter" data-i18n="galleryTitle">Galerie</h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-lg" data-i18n="galleryDescription">Une exploration chronologique de la nature et des paysages à travers les pigments naturels.</p>
             </div>
             <!-- Year Navigation -->
             <nav class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
@@ -113,7 +120,7 @@
         <!-- Gallery Section 2025 -->
         <section class="mb-16" id="2025">
             <div class="flex items-center gap-4 mb-8">
-                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary">Collection</span>
+                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary" data-i18n="collection">Collection</span>
                 <div class="h-[1px] flex-grow bg-slate-200 dark:bg-slate-800"></div>
                 <h3 class="text-lg font-bold">2025</h3>
             </div>
@@ -358,7 +365,7 @@
         <!-- Gallery Section 2024 -->
         <section class="mb-16" id="2024">
             <div class="flex items-center gap-4 mb-8">
-                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary">Collection</span>
+                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary" data-i18n="collection">Collection</span>
                 <div class="h-[1px] flex-grow bg-slate-200 dark:bg-slate-800"></div>
                 <h3 class="text-lg font-bold">2024</h3>
             </div>
@@ -577,7 +584,7 @@
         <!-- Gallery Section 2023 -->
         <section class="mb-16" id="2023">
             <div class="flex items-center gap-4 mb-8">
-                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary">Collection</span>
+                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary" data-i18n="collection">Collection</span>
                 <div class="h-[1px] flex-grow bg-slate-200 dark:bg-slate-800"></div>
                 <h3 class="text-lg font-bold">2023</h3>
             </div>
@@ -833,7 +840,7 @@
                     <div class="w-6 h-6 bg-primary rounded-full"></div>
                     <span class="text-lg font-extrabold tracking-tight uppercase">Eva Boilley</span>
                 </div>
-                <p class="text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed">
+                <p class="text-slate-500 dark:text-slate-400 max-w-sm leading-relaxed" data-i18n="footerDescription">
                     Créatrice d'images fascinée par les grands espaces et la puissance de la nature. Arbois, France.
                 </p>
                 <div class="flex gap-4">
@@ -848,50 +855,25 @@
                 </div>
             </div>
             <div class="space-y-4">
-                <h5 class="font-bold text-sm uppercase tracking-widest text-slate-400">Navigation</h5>
+                <h5 class="font-bold text-sm uppercase tracking-widest text-slate-400" data-i18n="navigation">Navigation</h5>
                 <ul class="space-y-2 text-slate-600 dark:text-slate-400">
-                    <li><a class="hover:text-primary transition-colors" href="index.html#l'artiste">L'artiste</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="galerie.html">Galerie</a></li>
-                    <li><a class="hover:text-primary transition-colors" href="expositions.html">Expositions</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="index.html#l'artiste" data-i18n="menuartiste">L'artiste</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="galerie.html" data-i18n="menugalerie">Galerie</a></li>
+                    <li><a class="hover:text-primary transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a></li>
                 </ul>
             </div>
             <div class="space-y-4">
-                <h5 class="font-bold text-sm uppercase tracking-widest text-slate-400">Contact</h5>
-                <p class="text-sm text-slate-500">Pour acheter un tableau ou passer commande, contactez-moi par e-mail.</p>
+                <h5 class="font-bold text-sm uppercase tracking-widest text-slate-400" data-i18n="contact">Contact</h5>
+                <p class="text-sm text-slate-500" data-i18n="si">Pour acheter un tableau ou passer commande, contactez-moi par e-mail.</p>
                 <a href="mailto:windcrafter@hotmail.com" class="inline-flex items-center gap-2 bg-primary text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-primary/90 transition-all">
                     <span class="material-symbols-outlined text-lg">mail</span>
-                    Contacter
+                    <span data-i18n="contactBtn">Contacter</span>
                 </a>
             </div>
         </div>
-        <div class="max-w-7xl mx-auto pt-16 mt-16 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400">
+        <div class="max-w-7xl mx-auto pt-16 mt-16 border-t border-slate-200 dark:border-slate-800 text-center text-xs text-slate-400" data-i18n="copyright">
             © 2025 Eva Boilley. Tous droits réservés.
         </div>
     </footer>
-
-    <!-- Mobile Menu Script -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuBtn = document.getElementById('close-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-        });
-        
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-        });
-        
-        // Close menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-            });
-        });
-    </script>
 </body>
 </html>

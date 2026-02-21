@@ -51,6 +51,7 @@
     "verano": "Un été dans les Asturies",
     "casacangas": "Maison de la culture à Cangas de Onis, Asturies, Espagne",
     "expotitle": "Expositions",
+    "expoDescription": "Un historique curé de mes expositions individuelles et collectives dans des galeries et institutions.",
     "printon": "Un raton-laveur a fait le printemps - gouache naturelle sur toile, 65 x 54 cm - Réalisé sur commande, VENDU",
     "vacareal": "Une vache royale - gouache naturelle sur toile, 30 x 30 cm - VENDU",
     "vacacualquiera": "Une vache commune - gouache naturelle sur toile, 30 x 30 cm - VENDU",
@@ -116,11 +117,15 @@
     "collection": "Collection",
     "recentWorks": "Œuvres récentes",
     "seeAllGallery": "Voir toute la galerie",
-    "footerDescription": "Créatrice d'images fascinée par les grands espaces et la puissance de la nature.",
+    "footerDescription": "Créatrice d'images fascinée par les grands espaces et la puissance de la nature. Arbois, France.",
     "atelier": "Atelier",
     "networks": "Réseaux",
     "copyright": "© 2025 Eva Boilley. Tous droits réservés.",
-    "contact": "Contact"
+    "contact": "Contact",
+    "galleryTitle": "Galerie",
+    "galleryDescription": "Une exploration chronologique de la nature et des paysages à travers les pigments naturels.",
+    "navigation": "Navigation",
+    "contactBtn": "Contacter"
     
 
 }

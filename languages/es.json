@@ -12,7 +12,7 @@
     "collection": "Colección",
     "recentWorks": "Obras recientes",
     "seeAllGallery": "Ver toda la galería",
-    "footerDescription": "Creadora de imágenes fascinada por los espacios abiertos y el poder de la naturaleza.",
+    "footerDescription": "Creadora de imágenes fascinada por los espacios abiertos y el poder de la naturaleza. Arbois, Francia.",
     "atelier": "Taller",
     "networks": "Redes",
     "copyright": "© 2025 Eva Boilley. Todos los derechos reservados.",
@@ -23,7 +23,7 @@
     "menuexpo": "Exposiciones",
     "menugalerie": "Galería",
     "oils": "Para unir la acción a la palabra, elaboro mi propia pintura utilizando pigmentos minerales naturales mezclados con aceite de linaza o goma arábiga. No utilizo ningún producto químico en mi práctica pictórica. El resto de mi material es de origen local o de segunda mano.",
-    "si": "",
+    "si": "Para comprar un cuadro o hacer un encargo, contáctame por correo electrónico.",
     "insta": "Estoy en Instagram : @eva_myvalova",
     "poule": "La gallina inmortal - gouache natural sobre tela, 30 x 30 cm - VENDIDO",
     "horreo2": "Asturias VIII - Hórreo (2) - gouache natural sobre tela, 92 x 65 cm - 300 €",
@@ -65,6 +65,7 @@
     "verano": "Un verano en Asturias",
     "casacangas": "Casa de cultura de Cangas de Onís, España",
     "expotitle": "Exposiciones",
+    "expoDescription": "Un historial de mis exposiciones individuales y colectivas en galerías e instituciones.",
     "printon": "Primaverache -gouache natural sobre tela, 65 x 54 cm - Encargo, VENDIDO",
     "vacareal": "Una vaca cualquiera - gouache natural sobre tela, 30 x 30 cm - VENDIDO",
     "vacacualquiera": "Una vaca real - gouache natural sobre tela, 30 x 30 cm - VENDIDO",
@@ -119,8 +120,9 @@
     "polarte": "POLARTE, Festival de arte urbano",
     "sombra": "A LA SOMBRA DE UN ELÉBRO",
     "revolt": "La Revoltosa, Gijón, España",
-    "almensis": "Calendula almacensis - gouache natural sobre lienzo, 34 x 24 cm, 50 €"
-    
-    
-
+    "almensis": "Calendula almacensis - gouache natural sobre lienzo, 34 x 24 cm, 50 €",
+    "galleryTitle": "Galería",
+    "galleryDescription": "Una exploración cronológica de la naturaleza y los paisajes a través de pigmentos naturales.",
+    "navigation": "Navegación",
+    "contactBtn": "Contactar"
 }    

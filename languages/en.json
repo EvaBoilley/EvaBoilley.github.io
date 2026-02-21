@@ -66,6 +66,7 @@
     "verano": "A summer in Asturias",
     "casacangas": "Cultural Centre in Cangas de Onis, Spain",
     "expotitle": "Exhibitions",
+    "expoDescription": "A curated history of my solo and group exhibitions in galleries and institutions.",
     "printon": "Spring raccoon - natural gouache on canvas, 65 x 54 cm - Commission, SOLD",
     "vacareal": "A royal cow - natural gouache on canvas, 30 x 30 cm - SOLD",
     "vacacualquiera": "A common cow - natural gouache on canvas, 30 x 30 cm - SOLD",
@@ -121,5 +122,11 @@
     "polarte": "POLARTE, Urban Art Festival",
     "sombra": "IN THE SHADE OF THE HELLEBORES",
     "revolt": "Café-bar-bookshop La Revoltosa, Gijón, Spain",
-    "almensis": "Calendula warehousis - natural gouache on canvas, 24 x 35 cm, 50 €"
+    "almensis": "Calendula warehousis - natural gouache on canvas, 24 x 35 cm, 50 €",
+    "galleryTitle": "Gallery",
+    "galleryDescription": "A chronological exploration of nature and landscapes through natural pigments.",
+    "navigation": "Navigation",
+    "contactBtn": "Contact",
+    "footerDescription": "Visual artist fascinated by wide open spaces and the power of nature. Arbois, France.",
+    "copyright": "© 2025 Eva Boilley. All rights reserved."
 }
