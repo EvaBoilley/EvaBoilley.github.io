@@ -58,24 +58,37 @@
     <!-- Top Navigation Bar -->
     <header class="sticky top-0 z-50 w-full border-b border-slate-200 dark:border-slate-800 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <div class="w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white">
-                    <span class="material-symbols-outlined text-xl">palette</span>
+            <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+                <div class="size-10 flex items-center justify-center overflow-hidden rounded-full">
+                    <img src="assets/pprofil.webp" alt="Eva Boilley" class="w-full h-full object-cover"/>
                 </div>
                 <h1 class="text-xl font-extrabold tracking-tight uppercase">Eva Boilley</h1>
-            </div>
+            </a>
             <nav class="hidden md:flex items-center gap-10">
                 <a class="text-sm font-medium tracking-wide text-slate-500 hover:text-primary transition-colors" href="index.html#l'artiste">L'artiste</a>
                 <a class="text-sm font-semibold tracking-wide hover:text-primary transition-colors" href="galerie.html">Galerie</a>
                 <a class="text-sm font-medium tracking-wide text-slate-500 hover:text-primary transition-colors" href="expositions.html">Expositions</a>
             </nav>
             <div class="flex items-center gap-4">
-                <a href="mailto:windcrafter@hotmail.com" class="bg-primary text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary/90 transition-all">
+                <a href="mailto:windcrafter@hotmail.com" class="hidden sm:flex bg-primary text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary/90 transition-all">
                     Contact
                 </a>
+                <button class="md:hidden text-slate-900 dark:text-white" id="mobile-menu-btn">
+                    <span class="material-symbols-outlined">menu</span>
+                </button>
             </div>
         </div>
     </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md hidden flex-col items-center justify-center gap-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-slate-900 dark:text-white">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="index.html#l'artiste">L'artiste</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="galerie.html">Galerie</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="expositions.html">Expositions</a>
+    </div>
 
     <main class="max-w-7xl mx-auto px-6 py-12">
         <!-- Page Header -->
@@ -855,5 +868,30 @@
             © 2025 Eva Boilley. Tous droits réservés.
         </div>
     </footer>
+
+    <!-- Mobile Menu Script -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const closeMenuBtn = document.getElementById('close-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+        });
+        
+        closeMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+        });
+        
+        // Close menu when clicking a link
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                mobileMenu.classList.remove('flex');
+            });
+        });
+    </script>
 </body>
 </html>
