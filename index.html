@@ -67,6 +67,12 @@
             <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a>
         </nav>
         <div class="flex items-center gap-6">
+            <!-- Language Selector -->
+            <select id="lang-selector" class="bg-transparent border border-white/20 rounded-lg px-2 py-1 text-sm font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary text-white">
+                <option value="fr" class="text-black">FR</option>
+                <option value="en" class="text-black">EN</option>
+                <option value="es" class="text-black">ES</option>
+            </select>
             <a href="mailto:windcrafter@hotmail.com" class="hidden sm:flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 hover:border-primary hover:bg-primary transition-all duration-300">
                 <span class="text-xs uppercase tracking-widest font-bold text-white" data-i18n="contact">Contact</span>
             </a>
@@ -244,31 +250,6 @@
             </div>
         </footer>
     </main>
-
-    <!-- Mobile Menu Script -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        const closeMenuBtn = document.getElementById('close-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.remove('hidden');
-            mobileMenu.classList.add('flex');
-        });
-        
-        closeMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.add('hidden');
-            mobileMenu.classList.remove('flex');
-        });
-        
-        // Close menu when clicking a link
-        mobileMenu.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
-                mobileMenu.classList.remove('flex');
-            });
-        });
-    </script>
     <script src="scriptsCV.js"></script>
 </body>
 </html>
