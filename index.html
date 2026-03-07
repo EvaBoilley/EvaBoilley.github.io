@@ -1,601 +1,243 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html class="dark">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-T2MZG22C9R"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag() { dataLayer.push(arguments); }
         gtag('js', new Date());
-
         gtag('config', 'G-T2MZG22C9R');
     </script>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-    <meta name="description" content="" />
-    <meta name="author" content="" />
-    <title>Eva Boilley</title>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta name="description" content="Eva Boilley - Créatrice d'images, peintre utilisant des pigments naturels"/>
+    <title>Eva Boilley | Artiste Peintre</title>
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
-    <!-- Font Awesome icons (free version)-->
-    <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
-    <!-- Google fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet"
-        type="text/css" />
-    <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" />
-    <!-- Core theme CSS (includes Bootstrap)-->
-    <link href="css/styles.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&amp;family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3a5707",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0a0a0c",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"],
+                        "serif": ["Playfair Display", "serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .serif-text {
+            font-family: 'Playfair Display', serif;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(10, 10, 12, 0.3) 0%, rgba(10, 10, 12, 0.85) 100%);
+        }
+    </style>
 </head>
-
-<body id="page-top">
-    <!-- Navigation-->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
-        <a class="navbar-brand js-scroll-trigger" href="#page-top">
-            <span class="d-block d-lg-none">Eva Boilley</span>
-            <span class="d-none d-lg-block"><img class="img-fluid img-profile rounded-circle mx-auto mb-2"
-                    src="assets/pprofil.webp" alt="" /></span>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-slate-100 antialiased overflow-x-hidden">
+    <!-- Sticky Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 px-6 md:px-12 py-6 flex items-center justify-between border-b border-white/5 backdrop-blur-sm bg-background-dark/20">
+        <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+            <div class="size-10 flex items-center justify-center overflow-hidden rounded-full">
+                <img src="assets/pprofil.webp" alt="Eva Boilley" class="w-full h-full object-cover"/>
+            </div>
+            <h1 class="serif-text text-xl md:text-2xl font-bold tracking-tight text-white">Eva Boilley</h1>
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span
-                class="navbar-toggler-icon"></span>
+        <nav class="hidden md:flex items-center gap-10">
+            <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="#about" data-i18n="menuartiste">L'artiste</a>
+            <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+            <a class="text-xs uppercase tracking-[0.2em] font-medium text-white/70 hover:text-white transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a>
+        </nav>
+        <div class="flex items-center gap-6">
+            <!-- Language Selector -->
+            <select id="lang-selector" class="bg-transparent border border-white/20 rounded-lg px-2 py-1 text-sm font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary text-white">
+                <option value="fr" class="text-black">FR</option>
+                <option value="en" class="text-black">EN</option>
+                <option value="es" class="text-black">ES</option>
+            </select>
+            <a href="mailto:windcrafter@hotmail.com" class="hidden sm:flex items-center gap-2 px-5 py-2 rounded-full border border-white/20 hover:border-primary hover:bg-primary transition-all duration-300">
+                <span class="text-xs uppercase tracking-widest font-bold text-white" data-i18n="contact">Contact</span>
+            </a>
+            <button class="md:hidden text-white" id="mobile-menu-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-dark/95 backdrop-blur-md hidden flex-col items-center justify-center gap-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-white">
+            <span class="material-symbols-outlined text-3xl">close</span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav">
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#l'artiste" data-i18n="menuartiste">L'artiste</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#galerie" data-i18n="menugalerie">Galerie</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#expositions" data-i18n="menuexpo">Expositions</a></li>
-                <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/jura.html">Jura</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <!-- Page Content-->
-    <div class="container-fluid p-0">
-        <!-- L'artiste-->
-        <section class="resume-section" id="l'artiste">
-            <div class="resume-section-content">
-                <h1 class="mb-0">
-                    Eva
-                    <span class="text-primary">Boilley</span>
-                </h1>
-                <div class="subheading mb-5">
-                    Arbois, FRANCE -
-                    <a>&#119;&#105;&#110;&#100;&#099;&#114;&#097;&#102;&#116;&#101;&#114;&#064;&#104;&#111;&#116;&#109;&#097;&#105;&#108;&#046;&#099;&#111;&#109;</a>
-                </div>
-                <p data-i18n="imageCreator">Créatrice d'images</p>
-                    <p data-i18n="fascination">Fascinée depuis toujours par les grands espaces et la puissance de la nature, je cherche par la
-                    peinture à transmettre cette admiration pour ce spectacle grandiose, lent ou fulgurant, intimidant
-                    ou merveilleux, que nous offre chaque jour notre planète, et parfois combien l'humanité est
-                    incapable de s'en rendre compte ni de la respecter.</p> 
-                    <p data-i18n="oils"> Je peins avec les pigments naturels de la Société des Ocres de France (ocres-de-france.com) et
-                    soit de l'huile de lin, soit de la gomme arabique; sans utiliser de diluants chimiques. Mon matériel
-                    est sourcé localement ou de seconde main.</p>
-                    <p data-i18n="si">Si vous souhaitez acheter un tableau, contactez-moi par e-mail. J'accepte également les
-                    commandes.</p>
-                    <p data-i18n="insta"> Je suis sur Instagram : @eva_myvalova </p>
-            </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Galerie-->
-        <section class="resume-section" id="galerie">
-            <div class="resume-section-content">
-                <h2 class="mb-5" data-i18n="galerie">Galerie</h2>
-                <h3 class="text-center font-weight-bold mb-4">2026</h3>
-                <div class="gallery-year">
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2026/hibernaculum2.webp" alt="" />
-                        <p data-i18n="hibernaculum">hibernaculum</p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2026/bolachemarzo2.webp" alt="" />
-                        <p data-i18n="bolachemar">bolachemar</p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2026/bolachefeb.webp" alt="" />
-                        <p data-i18n="bolachefeb">bolachefeb</p>
-                    </div>
-                </div>
-               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2026/bolacheenero.webp" alt="" />
-                        <p data-i18n="bolacheenero">bolacheenero</p>
-                    </div>
-                </div>     
-                <h3 class="text-center font-weight-bold mb-4">2025</h3>
-                <div class="gallery-year">
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/eleboro.webp" alt="" />
-                        <p data-i18n="eleboro">eleboro</p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/almensis.webp" alt="" />
-                        <p data-i18n="almensis">almensis</p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/mujo.webp" alt="" />
-                        <p data-i18n="mujo">Mujo</p>
-                    </div>
-                </div>
-                            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/raspberry.webp" alt="" />
-                        <p data-i18n="raspberry">Raspberry</p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/blackberry.webp" alt="" />
-                        <p data-i18n="blackberry">Blackberry</p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/villacogersa.webp" alt="" />
-                        <p data-i18n="cogersa">Villa Cogersa</p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/génératon.webp" alt="" />
-                        <p data-i18n="generaton">generaton</p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/villaexcelsior.webp" alt="" />
-                        <p data-i18n="villaexcel">villa excel</p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/aubergine2.webp" alt="" />
-                        <p data-i18n="aubergine">aubergine</p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/carotte2.webp" alt="" />
-                        <p data-i18n="carotte">carotte</p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/tomate.webp" alt="" />
-                        <p data-i18n="tomate">tomate</p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/tournesol2.webp" alt="" />
-                        <p data-i18n="tournesol">tournesol</p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/courgette2.webp" alt="" />
-                        <p data-i18n="courgette">courgette</p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/jetprivé.webp" alt="" />
-                        <p data-i18n="jetprive">jet privé </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/nitrastur.webp" alt="" />
-                        <p data-i18n="nitrastur">nistrastur </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/sanjuandelabasura.webp" alt="" />
-                        <p data-i18n="elpueblo">el pueblo </p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/menuet2.webp" alt="" />
-                        <p data-i18n="menuet">menuet </p>
-                    </div>
-                </div>
-                       <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2025/espresso.webp" alt="" />
-                        <p data-i18n="espresso">espresso </p>
-                    </div>
-                </div>
-                </div>
-                <h3 class="text-center font-weight-bold mb-4">2024</h3>
-                <div class="gallery-year">
-                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/maleza.webp" alt="" />
-                        <p data-i18n="maleza">Maleza</p>
-                    </div>
-                </div>
-                  <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/racinaire (2).webp" alt="" />
-                        <p data-i18n="racines">racines </p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/riverside_evaboilley.webp" alt="" />
-                        <p data-i18n="riverside">riverside </p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/nutshell.webp" alt="" />
-                        <p data-i18n="nutshell">nutshell </p>
-                    </div>
-                </div>
-                   <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/horreo2.webp" alt="" />
-                        <p data-i18n="horreo2">Hórreo (2) - pigments naturels et gomme arabique sur toile, 92 x 65 cm - 300 € </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/vacacualquiera.webp" alt="" />
-                        <p data-i18n="vacacualquiera"> Une vache commune - pigments naturels et gomme arabique sur toile, 30 x 30 cm - 50 € </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/vacareal.webp" alt="" />
-                        <p data-i18n="vacareal"> Une vache royale - pigments naturels et gomme arabique sur toile, 30 x 30 cm - VENDU </p>
-                    </div>
-                </div>
-                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/sella2.webp" alt="" />
-                        <p data-i18n="sella2">Descenso del Sella - pigments naturels et gomme arabique sur toile, 92 x 60 cm - 300 € </p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/puentecangas2.webp" alt="" />
-                        <p data-i18n="lirio">Lirio de día en Cangas de Onís - pigments naturels et gomme arabique sur toile, 100 x 73 cm - 300 € </p>
-                    </div>
-                </div>
-                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/somiedo.webp" alt="" />
-                        <p data-i18n="somiedo">Somiedo - pigments naturels et gomme arabique sur toile, 65 x 50 cm - 200 € </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/almanzano.webp" alt="" />
-                        <p data-i18n="manzano">Al manzano - pigments naturels et gomme arabique sur toile, 65 x 54 cm - 200 € </p>
-                        </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/naranjo.webp" alt="" />
-                        <p data-i18n="picos">Picos de Europa - pigments naturels et gomme arabique sur toile, 81 x 54 cm - 250 € </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/noe.webp" alt="" />
-                        <p data-i18n="noe">El hórreo de Noé - pigments naturels et gomme arabique sur toile, 81 x 54 cm - COMMANDE </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/Plastiquemonamour.webp" alt="" />
-                        <p data-i18n="plastique">Plastique, mon amour - pigments naturels et gomme arabique sur toile, 65 x 50 cm - VENDU </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/Ratechlaveur.webp" alt="" />
-                        <p data-i18n="ratech">Ratech-laveur - pigments naturels et gomme arabique sur toile, 65 x 50 cm - 200 € </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2024/Ratonverreur.webp" alt="" />
-                        <p data-i18n="verreur">Raton-verreur - pigments naturels et gomme arabique sur toile, 81 x 54 cm - VENDU </p>
-                    </div>
-                </div>
-            <h3 class="text-center font-weight-bold mb-4">2023</h3>
-            <div class="gallery-year">
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/playadepoo.webp" alt="" />
-                        <p data-i18n="poo">Playa de Poo - pigments naturels et gomme arabique sur toile, 100 x 75 cm - 300 € </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/grandetortilleauxchampignons.webp"
-                            alt="" />
-                        <p data-i18n="grandetortille">Grande tortille aux champignons - pigments naturels et huile de lin sur toile, 81 x 60 cm, VENDU </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/deuxiemetortille.webp" alt="" />
-                        <p data-i18n="t2">Deuxième tortille - pigments naturels et huile de lin sur toile, 50 x 50 cm, 150 € </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/premieretortille.webp" alt="" />
-                        <p data-i18n="t1">Première Tortille - pigments naturels et huile de lin sur toile, 50 x 50 cm, 150 € </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/troisieme tortille.webp" alt="" />
-                        <p data-i18n="t3">Troisième tortille - pigments naturels et huile de lin sur toile, 50 x 50 cm, VENDU </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/Deuxkomainus.webp" alt="" />
-                        <p data-i18n="deuxk">Deux Komainus - pigments naturels et huile de lin sur toile, 50 x 50 cm, 150 € </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/Sanagustin.webp" alt="" />
-                        <p data-i18n="agustin">San Agustin, Colombie - pigments naturels et huile de lin sur toile, 50 x 50 cm, 150 € </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/Nuberu.webp" alt="" />
-                        <p data-i18n="nuberu">El Nuberu - pigments naturels et huile de lin sur toile, 50 x 50 cm, 150 € </p>
-                    </div>
-                </div>
-               <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/valléedureinette.webp" alt="" />
-                        <p data-i18n="reinette">Vallée du reinette - pigments naturels et huile de lin sur toile, 92 x 73 cm, VENDU </p>
-                    </div>
-                </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/lasertucine.webp" alt="" />
-                        <p data-i18n="sertucine">La Sertucine - pigments naturels et huile de lin sur toile, 100 x 75 cm, VENDU </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/Alconcojar.webp" alt="" />
-                        <p data-i18n="marguerite">Leucanthemum vulgare - pigments naturels et huile de lin sur toile, 50 x 60 cm, 175 €</p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/digitalispurpurea.webp" alt="" />
-                        <p data-i18n="digitale">Digitalis purpurea - pigments naturels et huile de lin sur toile, 50 x 65 cm, 150 € </p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/crocuspocus2.webp" alt="" />
-                        <p data-i18n="crocus">Crocus pocus - pigments naturels et huile de lin sur toile, 73 x 54 cm, 200 € </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/IMG_20230430_142212.webp" alt="" />
-                        <p data-i18n="train">Campsis radicans - pigments naturels et huile de lin sur toile, 40 x 60 cm, 100 € </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/IMG_20230430_141834.webp" alt="" />
-                        <p data-i18n="HS">Calystegia sepium - pigments naturels et huile de lin sur toile, 50 x 60 cm, 150 € </p>
-                    </div>
-                </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/tulipaviridifloraspringgreen.webp" alt="" />
-                        <p data-i18n="tulipa">Tulipa viridiflora "Spring Green" - pigments naturels et huile de lin sur toile, 81 x 65 cm - VENDU </p>
-                    </div>
-                </div>
-                                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/papaverrhoeas.webp" alt="" />
-                        <p data-i18n="coquelicot">Papaver rhoeas - pigments naturels et huile de lin sur toile, 50 x 60 cm, VENDU </p>
-                    </div>
-                </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <img class="img-fluid img-profile mx-auto mb-2" src="assets/2023/IMG_20230430_140509.webp" alt="" />
-                        <p data-i18n="hellebore">Helleborus Foetidus - pigments naturels et huile de lin sur toile, 50 x 50 cm, VENDU </p>
-                    </div>
-                </div>
-                </div>
-                </div>
-            </div>
-            </div>
-        </section>
-        <hr class="m-0" />
-        <!-- Expositions-->
-        <section class="resume-section" id="expositions">
-            <div class="resume-section-content">
-                <h2 class="mb-5" data-i18n="expotitle">Expositions</h2>
-                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">HIBERNACULUM</h3>
-                    <div class="subheading mb-3" data-i18n="eliza">Galería Eliza Southwood, Villaviciosa, España<div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2026</span></div>
-            </div>
-                    <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" data-i18n="sombra">A LA SOMBRA DEL ELÉBRO</h3>
-                    <div class="subheading mb-3" data-i18n="revolt">Librería La Revoltosa, Gijón, España<div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" data-i18n="polarte">POLARTE : Festival de arte urbano</h3>
-                    <div class="subheading mb-3" data-i18n="pola">Pola de Siero, España</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" data-i18n="esca">ESCARAMUJOS</h3>
-                    <div class="subheading mb-3" data-i18n="tercerp">Librería La Tercera Palabra, Oviedo, España</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" data-i18n="revege">REVEGETACIÓN</h3>
-                    <div class="subheading mb-3" data-i18n="cultinf">Casa de cultura de Infiesto, España</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" >Artistes Benéficos : Mercadillo de arte de La Benéfica</h3>
-                    <div class="subheading mb-3" data-i18n="balneario" >Antiguo balneario de Borines, España</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" >Villa Ruderalis</h3>
-                    <div class="subheading mb-3" data-i18n="piedra" >Casa de Piedra, Colombres, Asturias</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" >Noche en Blanco</h3>
-                    <div class="subheading mb-3" data-i18n="coco" >Luanco, Asturias</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" data-i18n="12">12</h3>
-                    <div class="subheading mb-3" data-i18n="bueño">Bueño</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                        <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" data-i18n="churro">chocolate, churros y arte</h3>
-                    <div class="subheading mb-3" data-i18n="choco">Chocolate, churros y arte</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                       <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0" data-i18n="campestres">PASEOS CAMPESTRES</h3>
-                    <div class="subheading mb-3" data-i18n="huella">Huella</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2025</span></div>
-            </div>
-                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">DESTIN ASTURIAS 2039</h3>
-                    <div class="subheading mb-3" data-i18n="salasola">Sala sola</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
-            </div>
-                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0"data-i18n="recorridos">RECORRIDOS</h3>
-                    <div class="subheading mb-3" data-i18n="arriondas">Casa de cultura de Arriondas, Asturias</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
-            </div>
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">PORRUA EN BOLAS</h3>
-                    <div class="subheading mb-3">Porrúa, Asturias</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
-            </div>
-                 <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0"data-i18n="jura">PROMENADES DANS UN AUTRE JURA</h3>
-                    <div class="subheading mb-3" data-i18n="hamac">Librairie Le Hamac, Arbois</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
-            </div>
-
-                <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                    <div class="flex-grow-1">
-                        <h3 class="mb-0" data-i18n="verano">UN VERANO EN ASTURIAS</h3>
-                        <div class="subheading mb-3" data-i18n="casacangas">Casa de cultura de Cangas de Onis, Asturias</div>
-                    </div>
-                    <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
-                </div>
-            
-           <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0"data-i18n="unano">UN AÑO EN ASTURIAS</h3>
-                    <div class="subheading mb-3" data-i18n="pimiango">La libreria de Pimiango, Asturias</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2024</span></div>
-            </div>
-
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">HYPERFLORA</h3>
-                    <div class="subheading mb-3" data-i18n="arriondas">Casa de Cultura, Arriondas</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2023</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">WE ARE THE CHILDREN</h3>
-                    <div class="subheading mb-3" data-i18n="children">Expo collective, Galeria Pablo de Lillo, Oviedo</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2023</span></div>
-            </div>
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Desguazache</h3>
-                    <div class="subheading mb-3" data-i18n="goma">La Goma, Granada</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2022</span></div>
-            </div> 
-            <div class="d-flex flex-column flex-md-row justify-content-between mb-5">
-                <div class="flex-grow-1">
-                    <h3 class="mb-0">Mapacheria</h3>
-                    <div class="subheading mb-3" data-i18n="qarmita">La Qarmita, Granada</div>
-                </div>
-                <div class="flex-shrink-0"><span class="text-primary">2021</span></div>
-            </div>
-        </div>
-        </section>
-        <hr class="m-0" />
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-white hover:text-primary transition-colors" href="#about" data-i18n="menuartiste">L'artiste</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-white hover:text-primary transition-colors" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-white hover:text-primary transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a>
     </div>
-    <!-- Bootstrap core JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Third party plugin JS-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-    <!-- Core theme JS-->
+
+    <!-- Main Content -->
+    <main class="relative">
+        <!-- Hero Section -->
+        <section class="relative h-screen w-full flex items-center justify-center overflow-hidden">
+            <div class="absolute inset-0 bg-cover bg-center bg-no-repeat" style="background-image: url('assets/2025/villaexcelsior.webp');"></div>
+            <div class="absolute inset-0 hero-gradient"></div>
+            <div class="relative z-10 text-center px-4 max-w-4xl mx-auto">
+                <span class="text-primary text-xs md:text-sm font-bold uppercase tracking-[0.4em] mb-4 block" data-i18n="imageCreator">Créatrice d'images</span>
+                <h2 class="serif-text text-5xl md:text-8xl text-white font-normal leading-tight mb-8">
+                    Eva <br/> <span class="italic">Boilley</span>
+                </h2>
+                <p class="max-w-xl mx-auto text-white/60 text-base md:text-lg font-light leading-relaxed mb-10" data-i18n="heroDescription">
+                    Fascinée par les grands espaces et la puissance de la nature, je peins avec des pigments naturels pour transmettre cette admiration.
+                </p>
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-6">
+                    <a href="galerie.html" class="group flex items-center gap-3 bg-primary hover:bg-green-700 text-white px-8 py-4 rounded-lg transition-all transform hover:-translate-y-1">
+                        <span class="font-bold tracking-wider uppercase text-sm" data-i18n="seeGallery">Voir la Galerie</span>
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+            <!-- Scroll Indicator -->
+            <div class="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
+                <span class="text-[10px] uppercase tracking-[0.3em] text-white" data-i18n="scroll">Défiler</span>
+                <div class="w-px h-12 bg-gradient-to-b from-white to-transparent"></div>
+            </div>
+            <!-- Social Links Vertical -->
+            <div class="absolute left-6 md:left-12 bottom-12 hidden lg:flex flex-col gap-6">
+                <a class="text-white/40 hover:text-primary transition-colors" href="https://www.instagram.com/eva_myvalova" target="_blank" title="Instagram">
+                    <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+                    </svg>
+                </a>
+                <a class="text-white/40 hover:text-primary transition-colors" href="mailto:windcrafter@hotmail.com" title="Email">
+                    <span class="material-symbols-outlined">mail</span>
+                </a>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="bg-background-dark py-24 md:py-32 px-6 md:px-12">
+            <div class="max-w-5xl mx-auto">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+                    <div class="order-2 md:order-1">
+                        <span class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block" data-i18n="aboutLabel">À propos</span>
+                        <h3 class="serif-text text-4xl md:text-5xl text-white font-normal leading-tight mb-8" data-i18n="theartist">
+                            L'artiste
+                        </h3>
+                        <div class="space-y-6 text-white/70 leading-relaxed">
+                            <p data-i18n="fascination">
+                                Fascinée depuis toujours par les grands espaces et la puissance de la nature, je cherche par la peinture à transmettre cette admiration pour ce spectacle grandiose, lent ou fulgurant, intimidant ou merveilleux, que nous offre chaque jour notre planète.
+                            </p>
+                            <p data-i18n="oils">
+                                Je peins avec les pigments naturels de la Société des Ocres de France et soit de l'huile de lin, soit de la gomme arabique; sans utiliser de diluants chimiques. Mon matériel est sourcé localement ou de seconde main.
+                            </p>
+                            <p data-i18n="si">
+                                Si vous souhaitez acheter un tableau, contactez-moi par e-mail. J'accepte également les commandes.
+                            </p>
+                        </div>
+                        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                            <a href="galerie.html" class="inline-flex items-center gap-2 bg-primary hover:bg-green-700 text-white px-6 py-3 rounded-lg transition-all font-bold text-sm uppercase tracking-wider">
+                                <span data-i18n="seeMyWorks">Voir mes œuvres</span>
+                                <span class="material-symbols-outlined text-lg">arrow_forward</span>
+                            </a>
+                            <a href="mailto:windcrafter@hotmail.com" class="inline-flex items-center gap-2 border border-white/20 hover:border-primary text-white px-6 py-3 rounded-lg transition-all font-bold text-sm uppercase tracking-wider">
+                                <span data-i18n="contactMe">Me contacter</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="order-1 md:order-2 relative">
+                        <div class="aspect-[4/5] rounded-2xl overflow-hidden">
+                            <img src="assets/pprofil.webp" alt="Eva Boilley" class="w-full h-full object-cover"/>
+                        </div>
+                        <div class="absolute -bottom-6 -left-6 bg-primary text-white p-6 rounded-xl hidden md:block">
+                            <p class="text-3xl font-black">Arbois</p>
+                            <p class="text-sm text-white/70 uppercase tracking-wider">France</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Featured Works Preview -->
+        <section class="bg-[#121b0f] py-24 md:py-32 px-6 md:px-12">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+                    <div>
+                        <span class="text-primary text-xs font-bold uppercase tracking-[0.3em] mb-4 block" data-i18n="collection">Collection</span>
+                        <h3 class="serif-text text-4xl md:text-5xl text-white font-normal" data-i18n="recentWorks">Œuvres récentes</h3>
+                    </div>
+                    <a href="galerie.html" class="group flex items-center gap-2 text-white/70 hover:text-primary transition-colors">
+                        <span class="text-sm font-medium uppercase tracking-wider" data-i18n="seeAllGallery">Voir toute la galerie</span>
+                        <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">arrow_forward</span>
+                    </a>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <a href="galerie.html" class="group relative aspect-[3/4] rounded-xl overflow-hidden">
+                        <img src="assets/2025/eleboro.webp" alt="Eleboro" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <div>
+                                <h4 class="text-white text-xl font-bold">Eleboro</h4>
+                                <p class="text-white/70 text-sm">2025</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="galerie.html" class="group relative aspect-[3/4] rounded-xl overflow-hidden">
+                        <img src="assets/2025/mujo.webp" alt="Mujo" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <div>
+                                <h4 class="text-white text-xl font-bold">Mujo</h4>
+                                <p class="text-white/70 text-sm">2025</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="galerie.html" class="group relative aspect-[3/4] rounded-xl overflow-hidden">
+                        <img src="assets/2025/villacogersa.webp" alt="Villa Cogersa" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"/>
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end p-6">
+                            <div>
+                                <h4 class="text-white text-xl font-bold">Villa Cogersa</h4>
+                                <p class="text-white/70 text-sm">2025</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    <!-- Minimalist Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-12 px-6 md:px-20 bg-background-light dark:bg-background-dark">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-sm text-slate-500 dark:text-slate-400 font-light uppercase tracking-widest" data-i18n="copyright">
+                    © 2026 Eva Boilley. Tous droits réservés.
+            </div>
+            <div class="flex gap-6">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="https://www.instagram.com/eva_myvalova" target="_blank">
+                    <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                    </svg>
+                </a>
+                <a class="text-slate-400 hover:text-primary transition-colors" href="mailto:windcrafter@hotmail.com">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>                        </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+    </main>
     <script src="scriptsCV.js"></script>
 </body>
-
 </html>

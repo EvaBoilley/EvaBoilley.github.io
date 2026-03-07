@@ -1,0 +1,911 @@
+<!DOCTYPE html>
+<html class="dark" lang="fr">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Galerie | Eva Boilley</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200;300;400;500;600;700;800&amp;display=swap" rel="stylesheet"/>
+    <script>
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#3a5707",
+                        "background-light": "#f6f6f8",
+                        "background-dark": "#0a0a0c",
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+    <script src="scriptsCV.js" defer></script>
+    <style>
+        body {
+            font-family: 'Manrope', sans-serif;
+        }
+        .masonry-grid {
+            columns: 1;
+            gap: 1.5rem;
+        }
+        @media (min-width: 640px) { .masonry-grid { columns: 2; } }
+        @media (min-width: 1024px) { .masonry-grid { columns: 3; } }
+        
+        .gallery-item {
+            break-inside: avoid;
+            margin-bottom: 1.5rem;
+        }
+        .hover-overlay {
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-card:hover .hover-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-background-light dark:bg-background-dark text-slate-900 dark:text-white transition-colors duration-300">
+    <!-- Header / Navigation -->
+    <header class="flex items-center justify-between whitespace-nowrap border-b border-solid border-slate-200 dark:border-slate-800 px-6 md:px-20 py-6 sticky top-0 bg-background-light/80 dark:bg-background-dark/80 backdrop-blur-md z-50">
+        <a href="index.html" class="flex items-center gap-3 group cursor-pointer">
+            <div class="size-10 flex items-center justify-center overflow-hidden rounded-full">
+                <img src="assets/pprofil.webp" alt="Eva Boilley" class="w-full h-full object-cover"/>
+            </div>
+            <h2 class="text-xl font-extrabold leading-tight tracking-tight uppercase">Eva Boilley</h2>
+        </a>
+        <nav class="hidden md:flex flex-1 justify-center gap-12">
+            <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="index.html#l'artiste" data-i18n="menuartiste">L'artiste</a>
+            <a class="text-sm font-bold text-primary uppercase tracking-widest" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+            <a class="text-sm font-medium hover:text-primary transition-colors uppercase tracking-widest" href="expositions.html" data-i18n="menuexpo">Expositions</a>
+        </nav>
+        <div class="flex items-center gap-4">
+            <!-- Language Selector -->
+            <select id="lang-selector" class="bg-transparent border border-slate-300 dark:border-slate-700 rounded-lg px-2 py-1 text-sm font-medium cursor-pointer focus:outline-none focus:ring-2 focus:ring-primary">
+                <option value="fr">FR</option>
+                <option value="en">EN</option>
+                <option value="es">ES</option>
+            </select>
+            <a href="mailto:windcrafter@hotmail.com" class="hidden sm:flex bg-primary text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-primary/90 transition-all" data-i18n="contact">
+                Contact
+            </a>
+            <button class="md:hidden text-slate-900 dark:text-white" id="mobile-menu-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-40 bg-background-light/95 dark:bg-background-dark/95 backdrop-blur-md hidden flex-col items-center justify-center gap-8">
+        <button id="close-menu" class="absolute top-6 right-6 text-slate-900 dark:text-white">
+            <span class="material-symbols-outlined text-3xl">close</span>
+        </button>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="index.html#l'artiste" data-i18n="menuartiste">L'artiste</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="galerie.html" data-i18n="menugalerie">Galerie</a>
+        <a class="text-lg uppercase tracking-[0.2em] font-medium text-slate-900 dark:text-white hover:text-primary transition-colors" href="expositions.html" data-i18n="menuexpo">Expositions</a>
+    </div>
+
+    <main class="max-w-7xl mx-auto px-6 py-12">
+        <!-- Page Header -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+            <div class="space-y-2">
+                <h2 class="text-4xl md:text-5xl font-black tracking-tighter" data-i18n="galleryTitle">Galerie</h2>
+                <p class="text-slate-500 dark:text-slate-400 max-w-lg" data-i18n="galleryDescription">Une exploration chronologique de la nature et des paysages à travers les pigments naturels.</p>
+            </div>
+            <!-- Year Navigation -->
+            <nav class="flex items-center gap-2 overflow-x-auto pb-2 no-scrollbar">
+                <a href="#2026" class="px-5 py-2 rounded-full bg-primary text-white text-sm font-bold shadow-lg shadow-primary/20">2026</a>
+                <a href="#2025" class="px-5 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-sm font-medium transition-colors">2025</a>
+                <a href="#2024" class="px-5 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-sm font-medium transition-colors">2024</a>
+                <a href="#2023" class="px-5 py-2 rounded-full hover:bg-slate-200 dark:hover:bg-slate-800 text-sm font-medium transition-colors">2023</a>
+            </nav>
+        </div>
+
+        <!-- Gallery Section 2026 -->
+        <section class="mb-16" id="2026">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary" data-i18n="collection">Collection</span>
+                <div class="h-[1px] flex-grow bg-slate-200 dark:bg-slate-800"></div>
+                <h3 class="text-lg font-bold">2026</h3>
+            </div>
+            <div class="masonry-grid">
+                 <!-- Hibernaculum -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Hibernaculum" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2026/hibernaculum2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1">Hibernaculum</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="hibernaculum">Gouache naturelle, broderie et bois flotté sur toile, 50 x 73 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">300 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Bolache de enero -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="BolacheDeEnero" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2026/bolacheenero.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="bolacheenerotitle">Bolache de enero</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="bolacheenero">Gouache naturelle et textile sur toile, 30 x 30 cm</p>
+                           <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Bolache de febrero -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="BolacheDeFebrero" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2026/bolachefeb.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="bolachefebtitle">Bolache de febrero</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="bolacheenero">Pigments naturels et gomme arabique sur toile, 30 x 30 cm</p>
+                           <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                 <!-- Bolache de marzo -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="BolacheDeMarzo" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2026/bolachemarzo2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="bolachemartitle">Bolache de marzo</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="bolacheenero">Pigments naturels et gomme arabique sur toile, 30 x 30 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">100 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Gallery Section 2025 -->
+        <section class="mb-16" id="2025">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary" data-i18n="collection">Collection</span>
+                <div class="h-[1px] flex-grow bg-slate-200 dark:bg-slate-800"></div>
+                <h3 class="text-lg font-bold">2025</h3>
+            </div>
+            <div class="masonry-grid">
+                <!-- Eleboro -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Eleboro" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/eleboro.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="eleborotitle">Eleboro</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="eleboro">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">300 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Almensis -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Almensis" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/almensis.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="almensistitle">Almensis</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="almensis">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">50 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Mujo -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Mujo" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/mujo.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="mujotitle">Mujo</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="mujo">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">400 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Raspberry -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Raspberry" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/raspberry.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="raspberrytitle">Raspberry</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="raspberry">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">150 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Blackberry -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Blackberry" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/blackberry.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="blackberrytitle">Blackberry</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="blackberry">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">150 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Villa Cogersa -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Villa Cogersa" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/villacogersa2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="cogersatitle">Villa Cogersa</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="cogersa">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">400 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Génératon -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Génératon" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/génératon.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="generatontitle">Génératon</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="generaton">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">350 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Villa Excelsior -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Villa Excelsior" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/villaexcelsior.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="villaexceltitle">Villa Excelsior</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="villaexcel">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">300 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Aubergine -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Aubergine" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/aubergine2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="auberginetitle">Aubergine</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="aubergine">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">170 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Carotte -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Carotte" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/carotte2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="carottetitle">Carotte</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="carotte">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">170 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tomate -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Tomate" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/tomate.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="tomatetitle">Tomate</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="tomate">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">170 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tournesol -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Tournesol" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/tournesol2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="tournesoltitle">Tournesol</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="tournesol">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">170 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Courgette -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Courgette" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/courgette2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="courgettetitle">Courgette</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="courgette">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">170 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Jet Privé -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Jet Privé" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/jetprivé.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="jetprivetitle">Jet Privé</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="jetprive">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">200 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nitrastur -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Nitrastur" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/nitrastur.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="nitrasturtitle">Nitrastur</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="nitrastur">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">400 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- El Pueblo -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="El Pueblo" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/sanjuandelabasura.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="elpueboltitle">El Pueblo</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="elpueblo">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">300 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Menuet -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Menuet" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/menuet2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="menuettitle">Menuet</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="menuet">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Espresso -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Espresso" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2025/espresso.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="espressotitle">Espresso</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="espresso">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white" data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section 2024 -->
+        <section class="mb-16" id="2024">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary" data-i18n="collection">Collection</span>
+                <div class="h-[1px] flex-grow bg-slate-200 dark:bg-slate-800"></div>
+                <h3 class="text-lg font-bold">2024</h3>
+            </div>
+            <div class="masonry-grid">
+                <!-- Maleza -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Maleza" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/maleza.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="malezatitle">Maleza</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="maleza">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Racines -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Racines" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/racinaire (2).webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="racinestitle">Racines</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="racines">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Riverside -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Riverside" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/riverside_evaboilley.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="riversidetitle">Riverside</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="riverside">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">120 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Nutshell -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Nutshell" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/nutshell.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="nutshelltitle">Nutshell</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="nutshell">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Hórreo (2) -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Hórreo (2)" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/horreo2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="horreo2title">Hórreo (2)</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="horreo2">Pigments naturels et gomme arabique sur toile, 92 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">300 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Une vache commune -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Une vache commune" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/vacacualquiera.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="vacacualquieratitle"">Une vache commune</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="vacacualquiera">Pigments naturels et gomme arabique sur toile, 30 x 30 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Une vache royale -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Une vache royale" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/vacareal.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="vacarealtitle">Une vache royale</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="vacareal">Pigments naturels et gomme arabique sur toile, 30 x 30 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Descenso del Sella -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Descenso del Sella" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/sella2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="sella2title">Descenso del Sella</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="sella2">Pigments naturels et gomme arabique sur toile, 92 x 60 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">300 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Lirio de día en Cangas de Onís -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Lirio de día en Cangas de Onís" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/puentecangas2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="liriotitle">Lirio de día en Cangas de Onís</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="lirio">Pigments naturels et gomme arabique sur toile, 100 x 73 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">300 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Somiedo -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Somiedo" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/somiedo.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="somiedotitle">Somiedo</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="somiedo">Pigments naturels et gomme arabique sur toile, 65 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">200 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Al manzano -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Al manzano" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/almanzano.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="manzanotitle">Al manzano</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="manzano">Pigments naturels et gomme arabique sur toile, 65 x 54 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">200 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Picos de Europa -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Picos de Europa" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/naranjo.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="picostitle">Picos de Europa</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="picos">Pigments naturels et gomme arabique sur toile, 81 x 54 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">250 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- El hórreo de Noé -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="El hórreo de Noé" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/noe.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="noetitle">El hórreo de Noé</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="noe">Pigments naturels et gomme arabique sur toile, 81 x 54 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Plastique, mon amour -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Plastique, mon amour" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/Plastiquemonamour.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="plastiquetitle">Plastique, mon amour</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="plastique">Pigments naturels et gomme arabique sur toile, 65 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Ratech-laveur -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Ratech-laveur" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/Ratechlaveur.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="ratechtitle">Ratech-laveur</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="ratech">Pigments naturels et gomme arabique sur toile, 65 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">200 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Raton-verreur -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Raton-verreur" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2024/Ratonverreur.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="verreurtitle">Raton-verreur</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="verreur">Pigments naturels et gomme arabique sur toile, 81 x 54 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section 2023 -->
+        <section class="mb-16" id="2023">
+            <div class="flex items-center gap-4 mb-8">
+                <span class="text-xs font-black uppercase tracking-[0.2em] text-primary" data-i18n="collection">Collection</span>
+                <div class="h-[1px] flex-grow bg-slate-200 dark:bg-slate-800"></div>
+                <h3 class="text-lg font-bold">2023</h3>
+            </div>
+            <div class="masonry-grid">
+                <!-- Playa de Poo -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Playa de Poo" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/playadepoo.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="pootitle">Playa de Poo</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="poo">Pigments naturels et gomme arabique sur toile, 100 x 75 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">300 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Grande tortille aux champignons -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Grande tortille aux champignons" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/grandetortilleauxchampignons.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="grandetortilletitle">Grande tortille aux champignons</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="grandetortille">Pigments naturels et huile de lin sur toile, 81 x 60 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Deuxième tortille -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Deuxième tortille" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/deuxiemetortille.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="t2title">Deuxième tortille</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="t2">Pigments naturels et huile de lin sur toile, 50 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Première Tortille -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Première Tortille" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/premieretortille.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="t1title">Première Tortille</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="t1">Pigments naturels et huile de lin sur toile, 50 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Troisième tortille -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Troisième tortille" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/troisieme tortille.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="t3title">Troisième tortille</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="t3">Pigments naturels et huile de lin sur toile, 50 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Deux Komainus -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Deux Komainus" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/Deuxkomainus.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="deuxktitle">Deux Komainus</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="deuxk">Pigments naturels et huile de lin sur toile, 50 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">150 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- San Agustin, Colombie -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="San Agustin, Colombie" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/Sanagustin.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="agustintitle">San Agustin, Colombie</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="agustin">Pigments naturels et huile de lin sur toile, 50 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">150 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- El Nuberu -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="El Nuberu" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/Nuberu.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="nuberutitle">El Nuberu</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="nuberu">Pigments naturels et huile de lin sur toile, 50 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">150 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Vallée du reinette -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Vallée du reinette" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/valléedureinette.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="reinettetitle">Vallée du reinette</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="reinette">Pigments naturels et huile de lin sur toile, 92 x 73 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- La Sertucine -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="La Sertucine" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/lasertucine.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="sertucinetitle">La Sertucine</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="sertucine">Pigments naturels et huile de lin sur toile, 100 x 75 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Leucanthemum vulgare -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Leucanthemum vulgare" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/Alconcojar.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="margueritetitle">Leucanthemum vulgare</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="marguerite">Pigments naturels et huile de lin sur toile, 50 x 60 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">175 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Digitalis purpurea -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Digitalis purpurea" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/digitalispurpurea.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="digitaletitle">Digitalis purpurea</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="digitale">Pigments naturels et huile de lin sur toile, 50 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">150 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Crocus pocus -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Crocus pocus" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/crocuspocus2.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="crocustitle">Crocus pocus</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="crocus">Pigments naturels et huile de lin sur toile, 73 x 54 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">200 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Campsis radicans -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Campsis radicans" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/IMG_20230430_142212.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="traintitle">Campsis radicans</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="train">Pigments naturels et huile de lin sur toile, 40 x 60 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">100 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Calystegia sepium -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Calystegia sepium" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/IMG_20230430_141834.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="HStitle">Calystegia sepium</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="HS">Pigments naturels et huile de lin sur toile, 50 x 60 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-white/10 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white">150 €</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tulipa viridiflora "Spring Green" -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Tulipa viridiflora Spring Green" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/tulipaviridifloraspringgreen.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="tulipatitle">Tulipa viridiflora "Spring Green"</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="tulipa">Pigments naturels et huile de lin sur toile, 81 x 65 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Papaver rhoeas -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Papaver rhoeas" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/papaverrhoeas.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="coquelicottitle">Papaver rhoeas</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="coquelicot">Pigments naturels et huile de lin sur toile, 50 x 60 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Helleborus Foetidus -->
+                <div class="gallery-item group">
+                    <div class="gallery-card relative overflow-hidden rounded-xl bg-slate-100 dark:bg-slate-900 cursor-pointer">
+                        <img alt="Helleborus Foetidus" class="w-full h-auto object-cover transition-transform duration-700 group-hover:scale-105" src="assets/2023/IMG_20230430_140509.webp"/>
+                        <div class="hover-overlay absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent flex flex-col justify-end p-8">
+                            <h4 class="text-white text-xl font-bold mb-1" data-i18n="helleboretitle">Helleborus Foetidus</h4>
+                            <p class="text-slate-300 text-sm" data-i18n="hellebore">Pigments naturels et huile de lin sur toile, 50 x 50 cm</p>
+                            <div class="mt-4 flex gap-2">
+                                <span class="px-2 py-1 bg-red-500/80 backdrop-blur-md rounded text-[10px] uppercase font-bold text-white"data-i18n="sold">Vendu</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Scroll to Top Button-->
+        <div class="fixed bottom-10 right-10 z-40">
+            <button class="size-14 rounded-full bg-primary text-white shadow-xl flex items-center justify-center hover:scale-110 transition-transform" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">
+                <span class="material-symbols-outlined">arrow_upward</span>
+            </button>
+        </div>
+    <!-- Minimalist Footer -->
+    <footer class="border-t border-slate-200 dark:border-slate-800 py-12 px-6 md:px-20 bg-background-light dark:bg-background-dark">
+        <div class="flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="text-sm text-slate-500 dark:text-slate-400 font-light uppercase tracking-widest" data-i18n="copyright">
+                    © 2026 Eva Boilley. Tous droits réservés.
+            </div>
+            <div class="flex gap-6">
+                <a class="text-slate-400 hover:text-primary transition-colors" href="https://www.instagram.com/eva_myvalova" target="_blank">
+                    <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">                            <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"></path>
+                    </svg>
+                </a>
+                <a class="text-slate-400 hover:text-primary transition-colors" href="mailto:windcrafter@hotmail.com">
+                <svg class="size-5" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>                        </svg>
+                </a>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
