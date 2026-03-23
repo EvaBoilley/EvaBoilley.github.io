@@ -151,6 +151,8 @@
     "riverside": "gouache natural sobre tela, 55 x 38 cm",
     "villaexceltitle": "Ahora, es nuestra (Villa Excelsior)",
     "villaexcel": "gouache natural sobre lienzo, 60 x 75 cm",
+    "ratonplanteur": "Germinaciones",
+    "ratonplanteur2": "gouache natural sobre lienzo, 90 x 120 cm, 500 €",
 
     "expocollective": "Exposición colectiva",
     "eliza": "Galería Eliza Southwood, Villaviciosa, España",
@@ -188,7 +190,5 @@
     "galleryTitle": "Galería",
     "galleryDescription": "Una interpretacion del mundo a través de pigmentos minerales naturales.",
     "navigation": "Navegación",
-    "contactBtn": "Contactar",
-    "ratonplanteur": "Germinaciones",
-    "ratonplanteur2": "Gouache natural sobre lienzo, 90 x 120 cm, 500 €"
+    "contactBtn": "Contactar"
 }    
