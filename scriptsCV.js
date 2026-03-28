@@ -51,6 +51,8 @@ window.addEventListener('DOMContentLoaded', async () => {
             });
         });
     }
+
+    initGalleryLightbox();
 });
 
 function updateContent(langData) {
@@ -72,4 +74,57 @@ function mapLanguage(lang){
     if(lang.includes('en'))
         return 'en';
     return 'es'
+}
+
+function initGalleryLightbox() {
+    const lightbox = document.getElementById('gallery-lightbox');
+    const lightboxImg = document.getElementById('gallery-lightbox-img');
+    const closeBtn = document.getElementById('gallery-lightbox-close');
+    const cards = document.querySelectorAll('.gallery-card');
+    if (!lightbox || !lightboxImg || !closeBtn || !cards.length) return;
+
+    function openFromCard(card) {
+        const thumb = card.querySelector('img');
+        if (!thumb) return;
+        lightboxImg.src = thumb.currentSrc || thumb.src;
+        lightboxImg.alt = thumb.alt || '';
+        lightbox.classList.remove('hidden');
+        lightbox.classList.add('flex');
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLightbox() {
+        lightbox.classList.add('hidden');
+        lightbox.classList.remove('flex');
+        document.body.style.overflow = '';
+        lightboxImg.removeAttribute('src');
+        lightboxImg.alt = '';
+    }
+
+    cards.forEach((card) => {
+        card.addEventListener('dblclick', (e) => {
+            e.preventDefault();
+            openFromCard(card);
+        });
+
+        let lastTap = 0;
+        card.addEventListener('touchend', (e) => {
+            const now = Date.now();
+            if (now - lastTap < 320) {
+                e.preventDefault();
+                openFromCard(card);
+                lastTap = 0;
+            } else {
+                lastTap = now;
+            }
+        }, { passive: false });
+    });
+
+    closeBtn.addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('flex')) closeLightbox();
+    });
 }
